@@ -1,0 +1,78 @@
+nav {
+  background      : url("../img/list-top-bg.gif") repeat-x scroll 0 0 #000;
+  color           : #fff;
+  font-family     : Verdana, Arial, Helvetica, sans-serif;
+  font-size       : 11px;
+  left            : 0;
+  top             : 0;
+  margin          : 0;
+  padding         : 0;
+  width           : 100%;
+  height          : 35px;
+}
+
+nav p {
+  margin: 3px 3px;
+}
+
+nav a, nav a:hover, nav a:active, nav a:visited {
+  color           : #fff;
+  text-decoration : underline;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+footer p {
+  font-size     : 0.8em;
+  margin-bottom : 1.875em;
+  text-align    : center;
+}
+
+footer a, footer a:hover, footer a:active, footer a:visited {
+  color           : #000;
+  text-decoration : none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  text-align    : center;
+  margin-bottom : 0;
+  font-family   : "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
+  font-weight   : normal;
+  margin-top    : -4px;
+  margin-bottom : 2px;
+}
+
+.shadow {
+  -moz-box-shadow     : 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow  : 3px 3px 5px 6px #ccc;
+  box-shadow          : 3px 3px 5px 6px #ccc;
+}
+
+section.shadow {
+  min-height    : 300px;
+  padding-top   : 10px;
+  text-align    : center;
+  margin-left   : auto;
+  margin-right  : auto;
+}
+
+.center table {
+  margin  : 0;
+  padding : 0;
+  display : inline;
+}
+
+.center {
+  width   : 98%;
+  margin  : 1%;
+}
+
+td {
+  text-align: left;
+}

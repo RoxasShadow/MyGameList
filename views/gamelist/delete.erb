@@ -1,0 +1,15 @@
+<% @title = 'Delete game' %>
+<%= erb :'template/head' %>
+
+  <% if @output == Status::NOT_LOGGED %>
+    <p>You need to be logged.</p>
+  <% elsif @output == Status::FORBIDDEN %>
+    <p>You should not be here.</p>
+  <% elsif @output == Status::SUCCESS %>
+    <!-- <p>Game deletion completed.</p> -->
+    <% redirect "/gamelist/#{@username}" %>
+  <% elsif @output == Status::FAIL %>
+    <p>Game deletion failed.</p>
+  <% end %>
+
+<%= erb :'template/footer' %>

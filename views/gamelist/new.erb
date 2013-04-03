@@ -1,0 +1,19 @@
+<% @title = 'New game' %>
+<%= erb :'template/head' %>
+
+  <% if @output == Status::NOT_LOGGED %>
+    <p>You need to be logged.</p>
+  <% elsif @output == Status::FORBIDDEN %>
+    <p>You should not be here.</p>
+  <% elsif @output == Status::EMPTY_REQUIRED_FIELD %>
+    <p>The name of the game is required.</p>
+  <% elsif @output == Status::SUCCESS %>
+    <!-- <p>Game added to the list.</p> -->
+    <% redirect "/gamelist/#{@username}" %>
+  <% elsif @output.is_a?(Hash) && @output[:error].any? %>
+    <p>Game adding failed: <%= @output[:error].first.first %></p>
+  <% else %>
+    <%= erb :'template/macros/gameform' %>
+  <% end %>
+  
+<%= erb :'template/footer' %>

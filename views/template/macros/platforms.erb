@@ -1,0 +1,67 @@
+<%
+  [
+    '--- Home Console ---',
+    'PlayStation 3',
+    'Xbox 360',
+    'Nintendo Wii U',
+    'Nintendo Wii',
+    '',
+    
+    '--- Handlehand ---',
+    'Nintendo 3DS',
+    'Nintendo DS',
+    'PlayStation Vita',
+    'PlayStation Portable',
+    '',
+    
+    '--- PC ---',
+    'Windows',
+    'Linux',
+    'Mac OS X',
+    '',
+    
+    '--- Mobile ---',
+    'Android',
+    'iOS',
+    'Windows Phone',
+    '',
+    
+    '--- Retro ---',
+    'Gameboy Advance',
+    'Gameboy Color',
+    'PlayStation 2',
+    'PlayStation',
+    'Xbox',
+    'Gamecube',
+    'Nintendo 64',
+    'SNES',
+    'NES',
+    'Sega Dreamcast',
+    'Sega Saturn',
+    'Sega Mega Drive',
+    'Sega Master System',
+    '3DO',
+    'Neo Geo',
+    'Amiga 2600',
+    'PC Engine',
+    'Coleco Vision',
+    'Intellivision'
+  ].each_with_index { |p, i|
+%>
+
+  <% if @game && @game.platform == p %>
+    <% if p.start_with?('---') || p.empty? %>
+      <option value="<%= p %>" disabled><%= p %></option>
+    <% else %>
+      <option value="<%= p %>" selected><%= p %></option>
+    <% end %>
+  <% else %>
+    <% if p.start_with?('---') || p.empty? %>
+      <option value="<%= p %>" disabled><%= p %></option>
+    <% elsif p == 'PlayStation 3'  %>
+      <option value="<%= p %>" selected><%= p %></option>
+    <% else %>
+      <option value="<%= p %>"><%= p %></option>
+    <% end %>
+  <% end %>
+<% } %>

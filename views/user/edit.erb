@@ -1,0 +1,58 @@
+<% @title = 'Edit profile' %>
+<%= erb :'template/head' %>
+
+  <% if @output == Status::NOT_LOGGED %>
+    <p>You need to be logged.</p>
+  <% elsif @output == Status::FORBIDDEN %>
+    <p>You should not be here.</p>
+  <% elsif @output == Status::SUCCESS %>
+    <!-- <p>Profile modification completed.</p> -->
+    <% redirect "/user/#{@username}/edit" %>
+  <% elsif @output == Status::FAIL %>
+    <p>Profile modification failed.</p>
+  <% else %>
+    <form action="<%= @current_url %>" method="post" class="center">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td>
+            <input type="text" name="username" placeholder="username" value="<%= @user.username %>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="email" name="email" placeholder="email" value="<%= @user.email %>" />
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Presentation</td>
+          <td>
+            <textarea name="presentation" placeholder="presentation"><%= @user.presentation %></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <input type="password" name="password" placeholder="leave blank to not modify" />
+          </td>
+        </tr>
+        <tr>
+          <td>Repeat password</td>
+          <td>
+            <input type="password" name="password_confirmation" placeholder="leave blank to not modify" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= csrf_tag %>
+            <input type="submit" value="Edit" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  <% end %>
+
+<%= erb :'template/footer' %>

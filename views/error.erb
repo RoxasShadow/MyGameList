@@ -1,0 +1,10 @@
+<% @title = 'Error' %>
+<%= erb :'template/head' %>
+
+  <% if @error %>
+    <p><%= @error %></p>
+  <% else %>
+    <p>Error.</p>
+  <% end %>
+  
+<%= erb :'template/footer' %>

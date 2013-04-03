@@ -1,0 +1,21 @@
+<% @title = 'Edit game' %>
+<%= erb :'template/head' %>
+
+  <% if @output == Status::NOT_LOGGED %>
+    <p>You need to be logged.</p>
+  <% elsif @output == Status::FORBIDDEN %>
+    <p>You should not be here.</p>
+  <% elsif @output == Status::NOT_FOUND %>
+    <p>You have not added this game to your game list.</p>
+  <% elsif @output == Status::EMPTY_REQUIRED_FIELD %>
+    <p>The name of the game is required.</p>
+  <% elsif @output == Status::SUCCESS %>
+    <!-- <p>Game modification completed.</p> -->
+    <% redirect "/gamelist/#{@username}" %>
+  <% elsif @output == Status::FAIL %>
+    <p>Game modification failed.</p>
+  <% else %>
+    <%= erb :'template/macros/gameform' %>
+  <% end %>
+
+<%= erb :'template/footer' %>

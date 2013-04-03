@@ -1,0 +1,48 @@
+<table>
+
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><a href="/gamelist/<%= @username %>/name/asc">Game Title</a></th>
+      <th><a href="/gamelist/<%= @username %>/vote/desc">Vote</a></th>
+      <th><a href="/gamelist/<%= @username %>/category/asc">Category</a></th>
+      <th><a href="/gamelist/<%= @username %>/platform/asc">Platform</a></th>
+      <th><a href="/gamelist/<%= @username %>/started/desc">Started the</a></th>
+      <th><a href="/gamelist/<%= @username %>/progress/desc">Progress</a></th>
+      <% if @logged && @own %>
+        <th><b>Tools</b></th>
+      <% end %>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @games.each { |game| %>
+      <% if game.tag == @tag %>
+        <tr title="<%= game.comment %>">
+          <td><%= @i            %></td>
+          <td><%= game.name     %></td>
+          <td><%= game.vote     %></td>
+          <td><%= game.category %></td>
+          <td><%= game.platform %></td>
+          <td><%= game.started  %></td>
+          <% if game.progress.nil? %>
+            <td></td>
+          <% else %>
+            <td><%= game.progress %>%</td>
+          <% end %>
+          <% if @logged && @own %>
+            <td>
+              <form action="/gamelist/<%= @username %>/delete" method="post">
+                <input type="hidden" name="id" value="<%= game.id %>" />
+                <input type="submit" value="Delete" />
+              </form>
+              <a href="/gamelist/<%= @username %>/<%= game.id %>/edit">Edit</a>
+            </td>
+          <% end %>
+        </tr>
+      <% @i += 1 %>
+      <% end %>
+    <% } %>
+  </tbody>
+  
+</table>

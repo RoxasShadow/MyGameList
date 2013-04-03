@@ -1,0 +1,75 @@
+#gamelist {
+  width   : 98%;
+  margin  : 1%;
+}
+
+#gamelist table, #gamelist h2 {
+  margin-left   : auto;
+  margin-right  : auto;
+}
+
+#gamelist form {
+  display :  inline;
+}
+
+#presentation p {
+  font-style  : italic;
+}
+
+thead {
+  background-color  : #E7F1F7;
+  border-color      : #ABABAB;
+  border-style      : solid;
+  border-width      : 1px 1px 1px 0;
+  color             : #000;
+  padding           : 2px;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color  : #f3f9fc;
+}
+
+tr a {
+  text-decoration : none;
+  color           : #000;
+}
+
+tr a:hover {
+  text-decoration : underline;
+}
+
+th:nth-child(1) {
+  width: 30px;
+}
+
+th:nth-child(2) {
+  width: 250px;
+}
+
+th:nth-child(3) {
+  width: 45px;
+}
+
+th:nth-child(4) {
+  width: 100px;
+}
+
+th:nth-child(5) {
+  width: 170px;
+}
+
+th:nth-child(6) {
+  width: 100px;
+}
+
+th:nth-child(7) {
+  width: 70px;
+}
+
+th:nth-child(8) {
+  width: 120px;
+}

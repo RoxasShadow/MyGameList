@@ -1,0 +1,13 @@
+source 'http://rubygems.org'
+
+gem 'thin'
+gem 'sinatra'
+gem 'pony'
+gem 'xml-sitemap'
+gem 'execjs'
+gem 'therubyracer'
+gem 'html_press'
+gem 'rack_csrf'
+gem 'data_mapper'
+gem 'dm-mysql-adapter'
+gem 'perpetual', :git => 'https://github.com/RoxasShadow/Perpetual.git', :branch => 'master'

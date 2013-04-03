@@ -1,0 +1,49 @@
+<% @title = 'Signup' %>
+<%= erb :'template/head' %>
+
+  <% if @output == Status::ALREADY_LOGGED %>
+    <p>You are already logged.</p>
+  <% elsif @output == Status::SUCCESS %>
+    <!-- <p>Signup successfull.</p> -->
+    <% redirect '/user/login' %>
+  <% elsif @output.is_a?(Hash) && @output[:error].any? %>
+    <p>Signup failed: <%= @output[:error].first.first %></p>
+  <% else %>
+    <form action="<%= @current_url %>" method="post" class="center">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td>
+            <input type="text" name="username" placeholder="username" />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="email" name="email" placeholder="email" />
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <input type="password" name="password" placeholder="password" />
+          </td>
+        </tr>
+        <tr>
+          <td>Repeat password</td>
+          <td>
+            <input type="password" name="password_confirmation" placeholder="repeat password" />
+          </td>
+        </tr>
+        <tr>
+          <td>Signup</td>
+          <td>
+            <%= csrf_tag %>
+            <input type="submit" value="Signup" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  <% end %>
+  
+<%= erb :'template/footer' %>

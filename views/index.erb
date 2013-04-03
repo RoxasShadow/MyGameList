@@ -1,0 +1,11 @@
+<% @title = 'Home' %>
+<% if @logged %>
+  <% @welcome = "<p>Welcome <b>#{@username}</b>.<br />" %>
+<% else %>
+  <% @welcome = "<p>Welcome <b>visitator</b>.<br />" %>
+<% end %>
+<%= erb :'template/head' %>
+
+  <!-- <h2>HAI</h2> -->
+  
+<%= erb :'template/footer' %>

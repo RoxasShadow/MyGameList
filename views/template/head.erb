@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots"             content="index, follow" />
+    <meta name="description"        content="Cacca pupu'" />
+    <meta name="keywords"           content="cacca, pupu" />
+    <% if @title %>
+      <title><%= @title %> - MyGameList</title>
+    <% else %>
+      <title>MyGameList</title>
+    <% end %>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <% @styles.each { |style| %>
+      <link rel="stylesheet" type="text/css" href="/css/<%= style %>.css" />
+    <% } %>
+  </head>
+<body>
+  
+  <header>
+    <nav>
+      <% if @welcome.empty? %>
+        <% if @logged %>
+          <p>HAI <b><%= @username %></b>.</p>
+        <% else %>
+          <p>HAI <b>visitator</b>.</p>
+        <% end %>
+      <% else %>
+        <%= @welcome %>
+      <% end %>
+      <% if @logged %>
+        <p>
+          <a href="/user/<%= @username %>/edit">Edit profile</a> |
+          <a href="/gamelist/<%= @username %>">Game list</a> |
+          <a href="/user/logout?_csrf=<%= csrf_token %>">Logout</a>
+        </p>
+      <% else %>
+        <p>
+          <a href="/user/login">Login</a> |
+          <a href="/user/signup">Signup</a> |
+          <a href="/user/password_lost">Password lost?</a>
+        </p>
+      <% end %>
+    </nav>
+  </header>
+  
+  <section class="shadow">
+    <h2><%= @title %></h2>

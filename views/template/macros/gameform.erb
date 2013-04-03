@@ -1,0 +1,167 @@
+<% if @game %>
+  <form action="<%= @current_url %>" method="post" class="center">
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>
+          <input type="text" name="name" placeholder="name" value="<%= @game.name %>" />
+        </td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>
+          <select name="category">
+            <%= erb :'template/macros/categories' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Tag</td>
+        <td>
+          <select name="tag">
+            <%= erb :'template/macros/tags' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Platform</td>
+        <td>
+          <select name="platform">
+            <%= erb :'template/macros/platforms' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Progress</td>
+        <td>
+          <select name="progress">
+            <%= erb :'template/macros/progress' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Vote</td>
+        <td>
+          <select name="vote">
+            <%= erb :'template/macros/vote' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Comment</td>
+        <td>
+          <textarea name="comment" placeholder="comment" rows="10" cols="60"><%= @game.comment %></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>Started the</td>
+        <td>
+          <select name="year">
+            <% @selected = :year %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+          
+          <select name="month">
+            <% @selected = :month %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+          
+          <select name="day">
+            <% @selected = :day %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= csrf_tag %>
+          <input type="submit" value="Add" />
+        </td>
+      </tr>
+    </table>
+  </form>
+<% else %>
+<form action="<%= @current_url %>" method="post" class="center">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>
+        <input type="text" name="name" placeholder="name" />
+      </td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>
+        <select name="category">
+          <%= erb :'template/macros/categories' %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Tag</td>
+      <td>
+        <select name="tag">
+          <%= erb :'template/macros/tags' %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Platform</td>
+      <td>
+        <select name="platform">
+          <%= erb :'template/macros/platforms' %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Progress </td>
+      <td>
+        <select name="progress">
+          <%= erb :'template/macros/progress' %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Vote</td>
+      <td>
+        <select name="vote">
+          <%= erb :'template/macros/vote' %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Comment</td>
+      <td>
+        <textarea name="comment" placeholder="comment" rows="10" cols="60"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>Started the</td>
+      <td>
+          <select name="year">
+            <% @selected = :year %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+          
+          <select name="month">
+            <% @selected = :month %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+          
+          <select name="day">
+            <% @selected = :day %>
+            <%= erb :'template/macros/started_the' %>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= csrf_tag %>
+        <input type="submit" value="Add" />
+      </td>
+    </tr>
+  </table>
+</form>
+<% end %>

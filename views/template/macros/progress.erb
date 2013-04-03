@@ -1,0 +1,7 @@
+<% 0.upto(100) { |i| %>
+  <% if @game && @game.progress == i %>
+    <option value="<%= i %>" selected><%= i %>%</option>
+  <% else %>
+    <option value="<%= i %>"><%= i %>%</option>
+  <% end %>
+<% } %>

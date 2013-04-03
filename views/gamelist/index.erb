@@ -1,0 +1,59 @@
+<% if @output == Status::NOT_FOUND %>
+  <% @title = 'User not found' %>
+<% else %>
+  <% @title = @username + '\'s Game List' %>
+<% end %>
+
+<% unless @output == Status::NOT_FOUND %>
+  <% if @own %>
+    <% @welcome = "<p>Welcome on <b>your</b> Game List.<br />" %>
+  <% else %>
+    <% @welcome = "<p>Welcome on <b>#{@username}</b>'s Game List.<br />" %>
+  <% end %>
+<% end %>
+
+<% @styles << 'gamelist' %>
+<%= erb :'template/head' %>
+    
+  <% if @output == Status::NOT_FOUND %>
+    <p><%= @username %> is not registered.</p>
+  <% elsif @games.empty? %>
+    <p id="presentation"><%= @owner.presentation %></p>
+    <% if @own %>
+      <p>No games in your game list.</p>
+    <% else %>
+      <p>No games in <%= @username %>'s game list.</p>
+    <% end %>
+  <% else %>
+    <p id="presentation"><%= @owner.presentation %></p>
+    <div id="gamelist">
+    
+      <% if @games.any? { |game| game.tag == :Playing } %>
+        <h2>Playing</h2>
+        <% @tag = :Playing %>
+        <% @i   = 1 %>
+        <%= erb :'template/macros/gamelist' %>
+      <% end %>
+      
+      <% if @games.any? { |game| game.tag == :Dropped } %>
+        <h2>Dropped</h2>
+        <% @tag = :Dropped %>
+        <% @i   = 1 %>
+        <%= erb :'template/macros/gamelist' %>
+      <% end %>
+      
+      <% if @games.any? { |game| game.tag == :Plaining } %>
+        <h2>Plaining</h2>
+        <% @tag = :Plaining %>
+        <% @i   = 1 %>
+        <%= erb :'template/macros/gamelist' %>
+      <% end %>
+      
+    </div>
+  <% end %>
+  
+  <% if @own %>
+    <a href="/gamelist/<%= @username %>/new">Add game</a>
+  <% end %>
+  
+<%= erb :'template/footer' %>
