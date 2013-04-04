@@ -7,6 +7,7 @@ git clone https://github.com/RoxasShadow/Perpetual && cd Perpetual-master && gem
 sudo gem install bundler
 git clone https://github.com/RoxasShadow/MyGameList
 cd MyGameList
+# Configure config/db.yml with your MySQL login data (however, you can use another DBMS just changing some rows in mygamelist.rb)
 sudo apt-get install libmysqlclient-dev # change it according to your package manager
 bundle install
 thin -R config.ru -p 4567 start
