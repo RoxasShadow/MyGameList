@@ -1,6 +1,6 @@
 >Stalled
 
-MyAnimeList clone for gamer in development.
+MyAnimeList clone for gamer in development. Running at http://www.mygamelist.unsigned.it
 
 ```
 git clone https://github.com/RoxasShadow/Perpetual && cd Perpetual-master && gem build *.gemspec && gem install *.gem && cd ../ && rm -rf Perpetual-master
