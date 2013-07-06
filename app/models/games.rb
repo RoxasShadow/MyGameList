@@ -24,12 +24,13 @@ class Game
   property	:name,        String, :unique => true, :required => true
   property	:category1,   String
   property	:category2,   String
-  property  :tag,         Enum[ :Playing, :Dropped, :Stalled, :Plaining, :Completed ], :default => :Playing
+  property      :tag,         Enum[ :Playing, :Dropped, :Stalled, :Plaining, :Completed ], :default => :Playing
   property	:vote,        Integer, :min => 0, :max => 10
   property	:comment,     Text
   property	:platform,    String
   property	:started,     Date
-  property	:created_at,	DateTime
+  property	:finished,    Date
+  property	:created_at,  DateTime
   property	:updated_at,  DateTime
   
   belongs_to :user
@@ -37,7 +38,7 @@ class Game
   before :save, :purge
   
   def self.is_property?(property)
-    [ :id, :name, :category1, :category2, :vote, :comment, :platform, :started ].include? property.to_sym
+    [ :id, :name, :category1, :category2, :vote, :comment, :platform, :started, :finished ].include? property.to_sym
   end
   
   def purge
