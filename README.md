@@ -1,6 +1,4 @@
->Stalled
-
-MyAnimeList clone for gamer in development. Running at http://www.mygamelist.unsigned.it
+A MyAnimeList clone for gamer in development. Running at http://www.mygamelist.unsigned.it
 
 ```
 git clone https://github.com/RoxasShadow/Perpetual && cd Perpetual-master && gem build *.gemspec && gem install *.gem && cd ../ && rm -rf Perpetual-master
@@ -12,12 +10,4 @@ sudo apt-get install libmysqlclient-dev # change it according to your package ma
 bundle install
 thin -R config.ru -p 4567 start
 # http://localhost:4567
-```
-
-In order to have a documentation about the public APIs execute the follow commands.
-
-```
-sudo gem install rdoc-sinatra
-rdoc app/controllers/*
-cd doc
 ```
