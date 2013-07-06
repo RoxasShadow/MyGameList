@@ -24,7 +24,7 @@ class Game
   property	:name,        String, :unique => true, :required => true
   property	:category1,   String
   property	:category2,   String
-  property      :tag,         Enum[ :Playing, :Dropped, :Stalled, :Plaining, :Completed ], :default => :Playing
+  property  :tag,         Enum[ :Playing, :Dropped, :Stalled, :Completed ], :default => :Playing
   property	:vote,        Integer, :min => 0, :max => 10
   property	:comment,     Text
   property	:platform,    String

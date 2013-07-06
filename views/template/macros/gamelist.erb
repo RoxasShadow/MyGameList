@@ -7,7 +7,7 @@
       <th><a href="/gamelist/<%= @username %>/vote/desc">Vote</a></th>
       <th><a href="/gamelist/<%= @username %>/category/asc">Category</a></th>
       <th><a href="/gamelist/<%= @username %>/platform/asc">Platform</a></th>
-      <th><a href="/gamelist/<%= @username %>/started/desc">Start/Finish</a></th>
+      <th><a href="/gamelist/<%= @username %>/started/desc">Start/Drop</a></th>
       <% if @logged && @own %>
         <th><b>Admin</b></th>
       <% end %>
@@ -23,7 +23,7 @@
           <td><%= game.vote     %></td>
           <td><%= game.category1 %> <%= "- #{game.category2}" unless game.category2.blank? %></td>
           <td><%= game.platform %></td>
-          <td><%= game.started  %>  <%= "- #{game.finished}" unless game.finished %></td>
+          <td><%= game.started  %>  <%= "- #{game.finished}" %></td>
           <% if @logged && @own %>
             <td>
               <form action="/gamelist/<%= @username %>/delete" method="post">

@@ -34,11 +34,11 @@ class MyGameList
 		end
 		
 		def get_tags
-		  [ :Playing, :Completed, :Stalled, :Dropped, :Plaining  ]
+		  [ :Playing, :Completed, :Stalled, :Dropped  ]
 		end
 		
 		def get_categories
-		  [ 'Action', 'Adventure', 'Fightning', 'Music', 'RPG', 'Racing', 'Shooter', 'Sports', 'Strategy' ]
+		  [ 'Action', 'Adventure', 'Fightning', 'Music', 'Puzzle', 'RPG', 'Racing', 'Shooter', 'Sports', 'Strategy' ]
 		end
 		
 	end

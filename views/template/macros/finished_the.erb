@@ -1,0 +1,57 @@
+<% if !@game.nil? %>
+
+  <% if @selected == :year %>
+    <% 1990.upto(Time.now.year + 2) { |i| %>
+      <% if @game && @game.finished && @game.finished.year == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% elsif @selected == :month %>
+    <% 1.upto(12) { |i| %>
+      <% if @game && @game.finished && @game.finished.month == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% elsif @selected == :day %>
+    <% 1.upto(31) { |i| %>
+      <% if @game && @game.finished && @game.finished.day == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% end %>
+  
+<% else %>
+
+  <% if @selected == :year %>
+    <% 1990.upto(Time.now.year + 2) { |i| %>
+      <% if Time.now.year == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% elsif @selected == :month %>
+    <% 1.upto(12) { |i| %>
+      <% if Time.now.month == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% elsif @selected == :day %>
+    <% 1.upto(31) { |i| %>
+      <% if Time.now.day == i %>
+        <option value="<%= i %>" selected><%= i %></option>
+      <% else %>
+        <option value="<%= i %>"><%= i %></option>
+      <% end %>
+    <% } %>
+  <% end %>
+  
+<% end %>

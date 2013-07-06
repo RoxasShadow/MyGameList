@@ -51,19 +51,38 @@
       <tr>
         <td>Started the</td>
         <td>
-          <select name="year">
+          <select name="year1">
             <% @selected = :year %>
             <%= erb :'template/macros/started_the' %>
           </select>
           
-          <select name="month">
+          <select name="month1">
             <% @selected = :month %>
             <%= erb :'template/macros/started_the' %>
           </select>
           
-          <select name="day">
+          <select name="day1">
             <% @selected = :day %>
             <%= erb :'template/macros/started_the' %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Finished the</td>
+        <td>
+          <select name="year2">
+            <% @selected = :year %>
+            <%= erb :'template/macros/finished_the' %>
+          </select>
+          
+          <select name="month2">
+            <% @selected = :month %>
+            <%= erb :'template/macros/finished_the' %>
+          </select>
+          
+          <select name="day2">
+            <% @selected = :day %>
+            <%= erb :'template/macros/finished_the' %>
           </select>
         </td>
       </tr>
@@ -129,19 +148,38 @@
     <tr>
       <td>Started the</td>
       <td>
-          <select name="year">
+          <select name="year1">
             <% @selected = :year %>
             <%= erb :'template/macros/started_the' %>
           </select>
           
-          <select name="month">
+          <select name="month1">
             <% @selected = :month %>
             <%= erb :'template/macros/started_the' %>
           </select>
           
-          <select name="day">
+          <select name="day1">
             <% @selected = :day %>
             <%= erb :'template/macros/started_the' %>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Dropped the</td>
+      <td>
+          <select name="year2">
+            <% @selected = :year %>
+            <%= erb :'template/macros/finished_the' %>
+          </select>
+          
+          <select name="month2">
+            <% @selected = :month %>
+            <%= erb :'template/macros/finished_the' %>
+          </select>
+          
+          <select name="day2">
+            <% @selected = :day %>
+            <%= erb :'template/macros/finished_the' %>
           </select>
       </td>
     </tr>

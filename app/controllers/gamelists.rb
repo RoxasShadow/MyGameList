@@ -63,7 +63,8 @@ class MyGameList
     end
     
     inputs.delete_if { |key, val| val.nil? || val.empty? }
-    inputs[:started] = Date.new params[:year].to_i, params[:month].to_i, params[:day].to_i
+    inputs[:started]  = Date.new params[:year1].to_i, params[:month1].to_i, params[:day1].to_i
+    inputs[:finished] = Date.new params[:year2].to_i, params[:month2].to_i, params[:day2].to_i
     
     game = current_user.games.new(
       :name      => inputs[:name],
@@ -72,7 +73,8 @@ class MyGameList
       :vote      => inputs[:vote],
       :comment   => inputs[:comment],
       :platform  => inputs[:platform],
-      :started   => inputs[:started]
+      :started   => inputs[:started],
+      :finished  => inputs[:finished]
     )
     
     @output = game.save ? Status::SUCCESS : { :status => Status::FAIL, :error => game.errors }
@@ -134,7 +136,8 @@ class MyGameList
     end
     
     inputs.delete_if { |key, val| val.empty? }
-    inputs[:started] = Date.new params[:year].to_i, params[:month].to_i, params[:day].to_i
+    inputs[:started]  = Date.new params[:year1].to_i, params[:month1].to_i, params[:day1].to_i
+    inputs[:finished] = Date.new params[:year2].to_i, params[:month2].to_i, params[:day2].to_i
     
     update = game.update(
       :name      => inputs[:name],
@@ -144,7 +147,8 @@ class MyGameList
       :tag       => inputs[:tag],
       :comment   => inputs[:comment],
       :platform  => inputs[:platform],
-      :started   => inputs[:started]
+      :started   => inputs[:started],
+      :finished  => inputs[:finished]
     )
     
     @output = update ? Status::SUCCESS : Status::FAIL
