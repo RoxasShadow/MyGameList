@@ -10,8 +10,11 @@
       <tr>
         <td>Category</td>
         <td>
-          <select name="category">
-            <%= erb :'template/macros/categories' %>
+          <select name="category1">
+            <%= erb :'template/macros/category1' %>
+          </select>
+          <select name="category2">
+            <%= erb :'template/macros/category2' %>
           </select>
         </td>
       </tr>
@@ -32,14 +35,6 @@
         </td>
       </tr>
       <tr>
-        <td>Progress</td>
-        <td>
-          <select name="progress">
-            <%= erb :'template/macros/progress' %>
-          </select>
-        </td>
-      </tr>
-      <tr>
         <td>Vote</td>
         <td>
           <select name="vote">
@@ -50,7 +45,7 @@
       <tr>
         <td>Comment</td>
         <td>
-          <textarea name="comment" placeholder="comment" rows="10" cols="60"><%= @game.comment %></textarea>
+          <textarea name="comment" placeholder="Comment" rows="10" cols="60"><%= @game.comment %></textarea>
         </td>
       </tr>
       <tr>
@@ -93,8 +88,11 @@
     <tr>
       <td>Category</td>
       <td>
-        <select name="category">
-          <%= erb :'template/macros/categories' %>
+        <select name="category1">
+          <%= erb :'template/macros/category1' %>
+        </select>
+        <select name="category2">
+          <%= erb :'template/macros/category2' %>
         </select>
       </td>
     </tr>
@@ -115,14 +113,6 @@
       </td>
     </tr>
     <tr>
-      <td>Progress </td>
-      <td>
-        <select name="progress">
-          <%= erb :'template/macros/progress' %>
-        </select>
-      </td>
-    </tr>
-    <tr>
       <td>Vote</td>
       <td>
         <select name="vote">
@@ -133,7 +123,7 @@
     <tr>
       <td>Comment</td>
       <td>
-        <textarea name="comment" placeholder="comment" rows="10" cols="60"></textarea>
+        <textarea name="comment" placeholder="Comment" rows="10" cols="60"></textarea>
       </td>
     </tr>
     <tr>

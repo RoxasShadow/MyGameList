@@ -33,6 +33,14 @@ class MyGameList
 		  HtmlPress.press(erb what)
 		end
 		
+		def get_tags
+		  [ :Playing, :Completed, :Stalled, :Dropped, :Plaining  ]
+		end
+		
+		def get_categories
+		  [ 'Action', 'Adventure', 'Fightning', 'Music', 'RPG', 'Racing', 'Shooter', 'Sports', 'Strategy' ]
+		end
+		
 	end
 	
 end

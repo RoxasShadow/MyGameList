@@ -2,6 +2,6 @@
   <% if @game && @game.vote == i %>
     <option value="<%= i %>" selected><%= i %></option>
   <% else %>
-    <option value="<%= i %>"><%= i %></option>
+    <option value="<%= i %>" <%= 'selected' if i == 6 %>><%= i %></option>
   <% end %>
 <% } %>

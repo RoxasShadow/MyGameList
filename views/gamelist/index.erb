@@ -28,27 +28,14 @@
     <p id="presentation"><%= @owner.presentation %></p>
     <div id="gamelist">
     
-      <% if @games.any? { |game| game.tag == :Playing } %>
-        <h2>Playing</h2>
-        <% @tag = :Playing %>
-        <% @i   = 1 %>
-        <%= erb :'template/macros/gamelist' %>
-      <% end %>
-      
-      <% if @games.any? { |game| game.tag == :Dropped } %>
-        <h2>Dropped</h2>
-        <% @tag = :Dropped %>
-        <% @i   = 1 %>
-        <%= erb :'template/macros/gamelist' %>
-      <% end %>
-      
-      <% if @games.any? { |game| game.tag == :Plaining } %>
-        <h2>Plaining</h2>
-        <% @tag = :Plaining %>
-        <% @i   = 1 %>
-        <%= erb :'template/macros/gamelist' %>
-      <% end %>
-      
+      <% get_tags.each { |tag| %>
+        <% if @games.any? { |game| game.tag == tag } %>
+          <h2><%= tag %></h2>
+          <% @tag = tag %>
+          <% @i   = 1 %>
+          <%= erb :'template/macros/gamelist' %>
+        <% end %>
+     <% } %>      
     </div>
   <% end %>
   

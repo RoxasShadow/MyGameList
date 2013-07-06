@@ -1,0 +1,11 @@
+<%
+  get_categories.each { |category|
+%>
+
+  <% if @game && @game.category1 == category %>
+    <option value="<%= category %>" selected><%= category %></option>
+  <% else %>
+    <option value="<%= category %>"><%= category %></option>
+  <% end %>
+  
+<% } %>

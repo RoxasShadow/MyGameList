@@ -1,4 +1,3 @@
-- Multiple game categories
 - CSRFed logout
 - Minify *.css
 - https://github.com/kematzy/sinatra-cache

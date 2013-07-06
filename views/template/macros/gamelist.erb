@@ -3,12 +3,11 @@
   <thead>
     <tr>
       <th>#</th>
-      <th><a href="/gamelist/<%= @username %>/name/asc">Game Title</a></th>
+      <th><a href="/gamelist/<%= @username %>/name/asc">Game</a></th>
       <th><a href="/gamelist/<%= @username %>/vote/desc">Vote</a></th>
       <th><a href="/gamelist/<%= @username %>/category/asc">Category</a></th>
       <th><a href="/gamelist/<%= @username %>/platform/asc">Platform</a></th>
       <th><a href="/gamelist/<%= @username %>/started/desc">Started the</a></th>
-      <th><a href="/gamelist/<%= @username %>/progress/desc">Progress</a></th>
       <% if @logged && @own %>
         <th><b>Tools</b></th>
       <% end %>
@@ -22,14 +21,9 @@
           <td><%= @i            %></td>
           <td><%= game.name     %></td>
           <td><%= game.vote     %></td>
-          <td><%= game.category %></td>
+          <td><%= game.category1 %> <%= "- #{game.category2}" unless game.category2.blank? %></td>
           <td><%= game.platform %></td>
           <td><%= game.started  %></td>
-          <% if game.progress.nil? %>
-            <td></td>
-          <% else %>
-            <td><%= game.progress %>%</td>
-          <% end %>
           <% if @logged && @own %>
             <td>
               <form action="/gamelist/<%= @username %>/delete" method="post">

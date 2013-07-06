@@ -45,13 +45,13 @@ class MyGameList
     end
     
     inputs = {
-      :name       => params[:name],
-      :category   => params[:category],
-      :tag        => params[:tag],
-      :vote       => params[:vote],
-      :comment    => params[:comment],
-      :progress   => params[:progress],
-      :platform   => params[:platform]
+      :name      => params[:name],
+      :category1 => params[:category1],
+      :category2 => params[:category2],
+      :tag       => params[:tag],
+      :vote      => params[:vote],
+      :comment   => params[:comment],
+      :platform  => params[:platform]
     }
     
     if inputs[:name].empty?
@@ -66,13 +66,13 @@ class MyGameList
     inputs[:started] = Date.new params[:year].to_i, params[:month].to_i, params[:day].to_i
     
     game = current_user.games.new(
-      :name       => inputs[:name],
-      :category   => inputs[:category],
-      :vote       => inputs[:vote],
-      :comment    => inputs[:comment],
-      :progress   => inputs[:progress],
-      :platform   => inputs[:platform],
-      :started    => inputs[:started]
+      :name      => inputs[:name],
+      :category1 => inputs[:category1],
+      :category2 => inputs[:category2],
+      :vote      => inputs[:vote],
+      :comment   => inputs[:comment],
+      :platform  => inputs[:platform],
+      :started   => inputs[:started]
     )
     
     @output = game.save ? Status::SUCCESS : { :status => Status::FAIL, :error => game.errors }
@@ -114,13 +114,13 @@ class MyGameList
     end
     
     inputs = {
-      :name       => params[:name],
-      :category   => params[:category],
-      :tag        => params[:tag],
-      :vote       => params[:vote],
-      :comment    => params[:comment],
-      :progress   => params[:progress],
-      :platform   => params[:platform]
+      :name      => params[:name],
+      :category1 => params[:category1],
+      :category2 => params[:category2],
+      :tag       => params[:tag],
+      :vote      => params[:vote],
+      :comment   => params[:comment],
+      :platform  => params[:platform]
     }
     
     game = Game.first(:id => params[:id], :user => { :username => current_user.username }) # user.games.all is bugged
@@ -137,14 +137,14 @@ class MyGameList
     inputs[:started] = Date.new params[:year].to_i, params[:month].to_i, params[:day].to_i
     
     update = game.update(
-      :name       => inputs[:name],
-      :category   => inputs[:category],
-      :vote       => inputs[:vote],
-      :tag        => inputs[:tag],
-      :comment    => inputs[:comment],
-      :progress   => inputs[:progress],
-      :platform   => inputs[:platform],
-      :started    => inputs[:started]
+      :name      => inputs[:name],
+      :category1 => inputs[:category1],
+      :category2 => inputs[:category2],
+      :vote      => inputs[:vote],
+      :tag       => inputs[:tag],
+      :comment   => inputs[:comment],
+      :platform  => inputs[:platform],
+      :started   => inputs[:started]
     )
     
     @output = update ? Status::SUCCESS : Status::FAIL

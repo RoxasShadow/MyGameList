@@ -1,0 +1,11 @@
+<%
+  (get_categories.reverse << '').reverse.each { |category|
+%>
+
+  <% if @game && @game.category2 == category %>
+    <option value="<%= category %>" selected><%= category %></option>
+  <% else %>
+    <option value="<%= category %>"><%= category %></option>
+  <% end %>
+  
+<% } %>

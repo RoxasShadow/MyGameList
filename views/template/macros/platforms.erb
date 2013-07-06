@@ -1,7 +1,9 @@
 <%
   [
     '--- Home Console ---',
+    'PlayStation 4',
     'PlayStation 3',
+    'Xbox One',
     'Xbox 360',
     'Nintendo Wii U',
     'Nintendo Wii',
@@ -58,7 +60,7 @@
   <% else %>
     <% if p.start_with?('---') || p.empty? %>
       <option value="<%= p %>" disabled><%= p %></option>
-    <% elsif p == 'PlayStation 3'  %>
+    <% elsif p == 'PlayStation 4'  %>
       <option value="<%= p %>" selected><%= p %></option>
     <% else %>
       <option value="<%= p %>"><%= p %></option>

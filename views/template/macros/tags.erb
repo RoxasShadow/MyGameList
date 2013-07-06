@@ -1,10 +1,10 @@
 <%
-  Game.tag.options[:flags].each { |t|
+  get_tags.each { |tag|
 %>
 
-  <% if @game && @game.tag == t %>
-    <option value="<%= t %>" selected><%= t %></option>
+  <% if @game && @game.tag == tag %>
+    <option value="<%= tag %>" selected><%= tag %></option>
   <% else %>
-    <option value="<%= t %>"><%= t %></option>
+    <option value="<%= tag %>"><%= tag %></option>
   <% end %>
 <% } %>

@@ -22,11 +22,11 @@ class Game
 
   property	:id,          Serial
   property	:name,        String, :unique => true, :required => true
-  property	:category,    String
-  property  :tag,         Enum[ :Playing, :Dropped, :Plaining ], :default => :Playing
+  property	:category1,   String
+  property	:category2,   String
+  property  :tag,         Enum[ :Playing, :Dropped, :Stalled, :Plaining, :Completed ], :default => :Playing
   property	:vote,        Integer, :min => 0, :max => 10
   property	:comment,     Text
-  property	:progress,    Integer, :min => 0, :max => 100
   property	:platform,    String
   property	:started,     Date
   property	:created_at,	DateTime
@@ -37,15 +37,16 @@ class Game
   before :save, :purge
   
   def self.is_property?(property)
-    [ :id, :name, :category, :vote, :comment, :progress, :platform, :started ].include? property.to_sym
+    [ :id, :name, :category1, :category2, :vote, :comment, :platform, :started ].include? property.to_sym
   end
   
   def purge
-	self.comment.gsub!(/"/m, '')
-  	self.name     = Rack::Utils.escape_html self.name
-  	self.category = Rack::Utils.escape_html self.category
-  	self.comment  = Rack::Utils.escape_html self.comment
-  	self.platform = Rack::Utils.escape_html self.platform
+	self.comment.gsub!(/"/m, '') if self.comment
+  	self.name      = Rack::Utils.escape_html self.name
+  	self.category1 = Rack::Utils.escape_html self.category1
+  	self.category2 = Rack::Utils.escape_html self.category2
+  	self.comment   = Rack::Utils.escape_html self.comment
+  	self.platform  = Rack::Utils.escape_html self.platform
   end
   
   protected
